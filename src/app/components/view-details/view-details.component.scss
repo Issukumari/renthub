@@ -1,0 +1,52 @@
+.viewDetail-container {
+    max-width: 630px;
+    height: 90px;
+    max-height: 100px;
+    margin: 20px;
+    padding: 10px;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 3px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .commentLabelStyle{
+    margin-left: 20px;
+  }
+  .userCommentStyle{
+    padding: 10px;
+  }
+  .commentStyle{
+    width: 68%;
+    height: 86%;
+    padding: 29px;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }

@@ -1,0 +1,42 @@
+<div class="create-post-container">
+    <h1 style="text-wrap: nowrap;">Choose your Appartment or Building</h1>
+      <div class="inputStyleApartment">
+      <div class=" input-container" >
+        <div class="labelStyle">Property Type</div>
+        <span>{{propertyPreviewData.stayOrLeaseType}}</span>
+      </div>
+      <div class=" input-container">
+        <div class="labelStyle">Number Of Beds</div>
+        <span>2</span>
+      </div>
+    </div>
+    <div class="inputStyleApartment">
+      <div class=" input-container" >
+        <div class="labelStyle">Address</div>
+        <span>{{propertyPreviewData.propertyLocation}}</span>
+      </div>
+      <div class=" input-container">
+        <div class="labelStyle">Rent</div>
+        <span>{{propertyPreviewData.expectedRent}}</span>
+      </div>
+      
+    </div>
+    <div class="inputStyleApartment">
+      <div class=" input-container" >
+        <div class="labelStyle">description</div>
+        <span>{{propertyPreviewData.description}}</span>
+      </div>
+      <div class=" input-container">
+        <div class="labelStyle">Aminities</div>
+        <span>{{propertyPreviewData.amenities}}</span>
+      </div>
+    </div>
+    <div class="imageInput">
+      <div class="imageLabelStyle">Photos</div>
+        <div class="image-container">
+        <div *ngFor="let image of propertyPreviewData.imageUrl" class="listing-item">
+          <img [src]="image" alt="Listing Image" class="carousel-image">
+        </div>
+      </div>
+    </div>
+  </div>
