@@ -1,0 +1,83 @@
+.create-post-container {
+    max-width: 500px;
+    margin: 25px;
+    padding: 20px;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 3px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  .inputStyleApartment{
+    display: flex; justify-content: space-between; gap: 20px;
+  }
+  .buildingStyle{
+    width: 229px;
+    height: 30px;  }
+  .radio-container {
+    width: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .sharedProperty{
+    margin-top: 5px;
+  }
+  .radio-container input {
+    margin-right: 5px; 
+  }
+  
+  .nameStyle{
+    width: 225px;
+    margin-right: 13px;
+  }
+  .propertyDetail{
+    display: flex;
+    gap: 20px;
+  }
+  .checkbox-container {
+    display: flex;                
+    flex-wrap: wrap;            
+  }
+  
+  .checkbox-item {
+    width: 33.33%;               
+    display: flex;               
+    align-items: center;    
+    box-sizing: border-box;      
+    margin-bottom: 10px;         
+  }
+  .checkboxStyle{
+    width: 10%;
+  }
+  .checkbox-item input {
+    margin-right: 5px;           
+  }
+  

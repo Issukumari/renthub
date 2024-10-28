@@ -1,0 +1,14 @@
+<div class="">
+    <h1 style="text-wrap: nowrap;">Comments</h1>
+    <form [formGroup]="createPostForm" (ngSubmit)="onSubmit()">
+        <div class="viewDetail-container" *ngFor="let user of comments">
+            <div class="userCommentStyle">{{user.name}}</div>
+            <div class="userCommentStyle">{{user.description}}</div>
+        </div>
+      <div class="form-field">
+        <label for="description" class="commentLabelStyle">Leave a Comment</label>
+        <input id="description" class="commentStyle" formControlName="description" type="text" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>

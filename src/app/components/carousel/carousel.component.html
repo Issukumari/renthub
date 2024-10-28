@@ -1,0 +1,16 @@
+
+<div class="carousel-container">
+    <i class="bi bi-chevron-compact-left"  (click)="previousImage()"></i>
+    <img [src]="images[currentIndex]" alt="Listing Image" class="carousel-image">
+    <i class="bi bi-chevron-compact-right" (click)="nextImage()"></i>
+
+    <div class="carousel-info">
+      <h2>{{ listings[currentIndex].title }}</h2>
+      <p>{{ listings[currentIndex].description }}</p>
+      <div class="button-container">
+        <button (click)="markAsFavorite(listings[currentIndex].id)" class="markAsFavourate">Mark as Favorite</button>
+        <button (click)="viewDetails(listings[currentIndex].id)"  class="markAsFavourate">View Details</button>
+      </div>
+    </div>
+  </div>    
+  <!-- [routerLink]="['details', listings[currentIndex].id]" -->

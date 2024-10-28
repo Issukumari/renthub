@@ -1,0 +1,115 @@
+<div class="create-post-container">
+    <h1 style="text-wrap: nowrap;">Choose your Appartment or Building</h1>
+    <form [formGroup]="createPostForm" (ngSubmit)="onSubmit()">
+      <div class="inputStyleApartment">
+      <div class="form-field" >
+        <label for="buildingName">Apartment/Building Name</label>
+        <select id="dropdown" formControlName="selectedOption" class="buildingStyle">
+          <option *ngFor="let option of dropdownOptions" [value]="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+        <div style="color: red;" *ngIf="createPostForm.get('selectedOption')?.invalid && createPostForm.get('selectedOption')?.touched">
+          Please select an option.
+        </div>
+      </div>
+      <div class="form-field nameStyle">
+        <label for="EnterName">Enter Name</label>
+        <input id="EnterName" formControlName="name" type="text" required>
+      
+        <div style="color: red;" *ngIf="createPostForm.get('name')?.hasError('required') && createPostForm.get('name')?.touched">
+          Name is required
+        </div>
+      
+        <div style="color: red;" *ngIf="!createPostForm.get('name')?.hasError('required') && createPostForm.get('name')?.hasError('onlyLetters') && createPostForm.get('name')?.touched">
+          Name must contain only letters
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="form-field">
+      <label for="sharedProperty">Is this a Shared Property?</label>
+      <div *ngFor="let option of sharedPropertyOption" class="radio-container">
+        <input id="{{option}}" type="radio" formControlName="sharedProperty" [value]="option">
+        <label for="{{option}}" class="sharedProperty">{{ option }}</label>
+      </div>
+    </div>
+    
+      <div class="form-field">
+        <label for="propertyLocation">Property Location</label>
+        <input id="propertyLocation" formControlName="propertyLocation" type="text" required>
+        <div style="color: red;" *ngIf="createPostForm.get('propertyLocation')?.hasError('required') && createPostForm.get('propertyLocation')?.touched">
+          Location is required
+        </div>
+      </div>
+      <div class="propertyDetail">
+        <div class="form-field nameStyle">
+          <label for="propertyDetails">Property Details</label>
+          <input id="propertyDetails" formControlName="propertyDetails" type="text" required>
+          <div style="color: red;" *ngIf="createPostForm.get('propertyDetails')?.hasError('required') && createPostForm.get('propertyDetails')?.touched">
+            Property Details is required
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="stayOrLeaseType">Stay / LeaseType</label>
+          <div *ngFor="let option of stayOrLeaseTypeOption" class="radio-container">
+            <input id="{{option}}" type="radio" formControlName="stayOrLeaseType" [value]="option">
+            <label for="{{option}}" style="text-wrap: nowrap;" class="stayOrLeaseType">{{ option }}</label>
+          </div>
+      </div>
+      </div>
+      <div class="expectedRent">
+        <div class="form-field nameStyle">
+          <label for="expectedRent">Expected Rent</label>
+          <input id="expectedRent" formControlName="expectedRent" type="number" required>
+        </div>
+        <div class="form-field">
+          <label for="priceType">Stay / LeaseType</label>
+          <div *ngFor="let option of priceTypeOption" class="radio-container">
+            <input id="{{option}}" type="radio" formControlName="priceType" [value]="option">
+            <label for="{{option}}" style="text-wrap: nowrap;" class="priceType">{{ option }}</label>
+          </div>
+      </div>
+      </div>
+      <div class="form-field">
+        <label for="furnished">Is the Room / Apartment Furnished?</label>
+        <div *ngFor="let option of furnished" class="radio-container">
+          <input id="{{option}}" type="radio" formControlName="furnishedFlat" [value]="option">
+          <label for="{{option}}" class="sharedProperty">{{ option }}</label>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="Aminities">Is the Room / Apartment Furnished?</label>
+        <div class="checkbox-container">
+          <div *ngFor="let amenity of amenities" class="checkbox-item">
+            <input 
+              id="{{amenity}}" 
+              type="checkbox" 
+              class="checkboxStyle"
+              [checked]="selectedAmenities.includes(amenity)" 
+              (change)="toggleAmenity(amenity)">
+            <label for="{{amenity}}" class="sharedProperty">{{ amenity }}</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-field">
+        <label for="Description">Description</label>
+        <label for="Title">Title</label>
+        <input id="Title" formControlName="title" type="text" required>
+        <div style="color: red;" *ngIf="createPostForm.get('title')?.hasError('required') && createPostForm.get('title')?.touched">
+          Title is required
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="Description">Description</label>
+        <input id="description" formControlName="description" type="text" required>
+        <div style="color: red;" *ngIf="createPostForm.get('name')?.hasError('description') && createPostForm.get('description')?.touched">
+          Description is required
+        </div>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
