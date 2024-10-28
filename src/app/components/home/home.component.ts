@@ -4,7 +4,7 @@ import { ListingService } from '../../services/listing.service';
 import {NgFor } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselComponent } from '../carousel/carousel.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +29,10 @@ export class HomeComponent {
 
   amenities: string[] = ['Wi-Fi', 'Air Conditioning', 'Parking', 'Gym Access', 'Swimming Pool']; 
 
-  constructor(private readonly listingService: ListingService) {}
+  constructor(private readonly listingService: ListingService,
+    private readonly router: Router
+
+  ) {}
 
   ngOnInit(): void {
     this.loadHighlightedListings();
@@ -103,5 +106,8 @@ export class HomeComponent {
       console.log(`Listing ${listingId} marked as favorite.`);
     });
   }
-
+  viewDetails(id: number) {
+    this.router.navigate([`details/${id}`]);
+  console.log('View details for listing', id);
+}
 }

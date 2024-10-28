@@ -30,16 +30,21 @@
           <img [src]="listing.imageUrl" alt="Listing Image" class="carousel-image">
           <h3>{{ listing.title }}</h3>
           <p>{{ listing.description }}</p>
-          <button (click)="markAsFavorite(listing.id)" class="buttonStyle">Mark as Favorite</button>
-          <button [routerLink]="['details', listing.id]">View Details</button>
+          <button (click)="markAsFavorite(listing.id)" class="markAsFavourate">Mark as Favorite</button>
+          <button (click)="viewDetails(listing.id)"  class="viewDetail">View Details</button>
+
         </div>
       </div>
   
       <div class="pagination">
-        <button *ngFor="let page of [].constructor(totalPages); let i = index" (click)="changePage(i + 1)">
+        <button
+          *ngFor="let page of [].constructor(totalPages); let i = index"
+          (click)="changePage(i + 1)"
+        >
           {{ i + 1 }}
         </button>
       </div>
+      
     </div>
   </div>
   

@@ -40,7 +40,7 @@ export class CarouselComponent {
     });
   }
     viewDetails(id: number) {
-      this.router.navigate(['details/id']);
-    console.log('View details for listing', id);
+      this.router.navigate([`details/${id}`]);
+      console.log('View details for listing', id);
   }
 }

@@ -17,7 +17,7 @@ export const routes: Routes = [
 { path: 'previewScreen', component: PreviewScreenComponent },
 {
 path: 'details/:id',
-component: ViewDetailsComponent 
+component: ViewDetailsComponent ,canActivate: [AuthGuard]
 },
 { path: 'carousel', component: CarouselComponent },
 ];

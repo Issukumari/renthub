@@ -9,8 +9,7 @@
       <p>{{ listings[currentIndex].description }}</p>
       <div class="button-container">
         <button (click)="markAsFavorite(listings[currentIndex].id)" class="markAsFavourate">Mark as Favorite</button>
-        <button (click)="viewDetails(listings[currentIndex].id)"  class="markAsFavourate">View Details</button>
+        <button (click)="viewDetails(listings[currentIndex].id)"  class="viewDetail">View Details</button>
       </div>
     </div>
   </div>    
-  <!-- [routerLink]="['details', listings[currentIndex].id]" -->

@@ -33,23 +33,31 @@
     height: 180px;
     margin: 0 auto;
   }
-  .buttonStyle{
+  .markAsFavourate{
     margin: 0 10px;
     padding: 10px 12px;
     background-color: #757575;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
+  .viewDetail{
+    padding: 10px 15px;
+    width: 125px;
+    background-color: #757575;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
   button {
     padding: 10px 15px;
     background-color: #757575;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
   }
   
@@ -78,5 +86,16 @@
     width: 30%; 
     margin: 10px; 
     text-align: center; 
+  }
+  .pagination {
+    display: flex;
+    justify-content: center; 
+    gap: 8px; 
+    margin-top: 16px; 
+  }
+  
+  .pagination button {
+    padding: 8px 12px;
+    font-size: 16px;
   }
   

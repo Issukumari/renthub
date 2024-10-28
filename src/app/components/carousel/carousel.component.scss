@@ -33,17 +33,25 @@
     margin-top: 15px; 
   }
   
-  .markAsFavourate {
-    margin: 0 10px; 
-    padding: 12px 12px; 
-    background-color: #007bff; 
-    color: white; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s ease; 
+  .markAsFavourate{
+    margin: 0 10px;
+    padding: 10px 12px;
+    background-color: #007bff; ;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
-  
+  .viewDetail{
+    padding: 10px 15px;
+    width: 118px;
+    background-color: #007bff; ;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
   .markAsFavourate:hover {
     background-color: #0056b3;
   }
