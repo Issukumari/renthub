@@ -17,6 +17,8 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node", "jest", "jasmine"],
     "target": "ES2022",
     "module": "ES2022",
     "lib": [
@@ -24,6 +26,14 @@
       "dom"
     ]
   },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "out-tsc"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

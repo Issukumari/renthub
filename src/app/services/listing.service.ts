@@ -14,9 +14,10 @@ export class ListingService {
       location: 'Downtown, City A',
       price: 1500,
       amenities: ['Wi-Fi', 'Air Conditioning', 'Parking'],
-      imageUrl: 'assets/Image 910.jpg',
+      imageUrl: 'assets/cozy-apartment.png',
       description: 'A cozy 2-bedroom apartment located in the heart of the city with easy access to public transport.',
-      isHighlighted: true
+      isHighlighted: false,
+      isFavourite: false
     },
     {
       id: 2,
@@ -24,9 +25,10 @@ export class ListingService {
       location: 'Suburb, City B',
       price: 1200,
       amenities: ['Wi-Fi', 'Gym Access', 'Pet Friendly'],
-      imageUrl: 'assets/AllPlant_Protein@3x.png',
+      imageUrl: 'assets/spacious.jpg',
       description: 'Spacious apartment with a park view and modern amenities, perfect for a small family.',
-      isHighlighted: false
+      isHighlighted: false,
+      isFavourite: false
     },
     {
       id: 3,
@@ -34,9 +36,10 @@ export class ListingService {
       location: 'Midtown, City A',
       price: 1000,
       amenities: ['Wi-Fi', 'Gym Access', 'Swimming Pool'],
-      imageUrl: 'assets/Image 612.png',
+      imageUrl: 'assets/modern-studio.jpg',
       description: 'A modern studio apartment with a great view and close proximity to shops and restaurants.',
-      isHighlighted: true
+      isHighlighted: false,
+      isFavourite: false
     },
     {
       id: 4,
@@ -44,9 +47,10 @@ export class ListingService {
       location: 'Uptown, City C',
       price: 3000,
       amenities: ['Wi-Fi', 'Private Pool', 'Concierge'],
-      imageUrl: 'assets/Image 898.jpg',
+      imageUrl: 'assets/spacious.jpg',
       description: 'A luxury penthouse with top-notch facilities and services in a prime location.',
-      isHighlighted: false
+      isHighlighted: false,
+      isFavourite: false
     },
   ];
 
@@ -111,15 +115,15 @@ export class ListingService {
     return of({ listings: paginatedListings, totalPages });
   }
 
-  markAsFavorite(listingId: number): Observable<void> {
+  markAsFavorite(listingId: number): Observable<{listing: any | null }> {
     const listing = this.listings.find(l => l.id === listingId);
-    if (listing) {
-      console.log(`Listing ${listing.title} marked as favorite.`);
+    if (listing) {      
+      return of({listing });
     } else {
-      console.log(`Listing with ID ${listingId} not found.`);
+      return of({listing: null });
     }
-    return of();
   }
+  
 
   getListingDetails(listingId: number): Observable<Listing | undefined> {
     const listing = this.listings.find(l => l.id === listingId);

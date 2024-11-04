@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Listing } from '../../models/listing.model';
 import { ListingService } from '../../services/listing.service';
-import {NgFor } from '@angular/common';
+import {NgFor, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { Router, RouterModule } from '@angular/router';
@@ -10,13 +10,15 @@ import { Router, RouterModule } from '@angular/router';
   selector: 'app-home',
   standalone: true,
   imports: [
-    NgFor,
+    NgFor,NgIf,
     ReactiveFormsModule,
     FormsModule,CarouselComponent,RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  highLightingData: any[] = []; 
+
   highlightedListings: Listing[] = [];
   paginatedListings: Listing[] = [];
   originalListings: Listing[] = [];
@@ -28,6 +30,7 @@ export class HomeComponent {
   selectedAmenities: string[] = []; 
 
   amenities: string[] = ['Wi-Fi', 'Air Conditioning', 'Parking', 'Gym Access', 'Swimming Pool']; 
+  favourateData: any={};
 
   constructor(private readonly listingService: ListingService,
     private readonly router: Router
@@ -40,6 +43,7 @@ export class HomeComponent {
   }
 
   loadHighlightedListings() {
+
     this.listingService.getHighlightedListings().subscribe((listings: Listing[]) => {
       this.highlightedListings = listings;
     });
@@ -102,8 +106,12 @@ export class HomeComponent {
   }
 
   markAsFavorite(listingId: number) {
+    console.log('markAsFavorite')
     this.listingService.markAsFavorite(listingId).subscribe(() => {
-      console.log(`Listing ${listingId} marked as favorite.`);
+        const listing = this.highlightedListings.find(l => l.id === listingId);
+      if (listing) {
+        listing.isFavourite = !listing.isFavourite;
+      } 
     });
   }
   viewDetails(id: number) {

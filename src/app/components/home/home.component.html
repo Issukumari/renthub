@@ -25,16 +25,34 @@
   
     <div class="listings">
       <h2>Available Listings</h2>
-      <div class="listing-container">
+      <!-- <div class="listing-container">
         <div *ngFor="let listing of paginatedListings" class="listing-item">
           <img [src]="listing.imageUrl" alt="Listing Image" class="carousel-image">
           <h3>{{ listing.title }}</h3>
           <p>{{ listing.description }}</p>
+          <div *ngIf="listing[currentIndex]?.isFavourite" class="favourate-icon">
+            <i class="bi bi-heart-fill"></i>
+            </div>
           <button (click)="markAsFavorite(listing.id)" class="markAsFavourate">Mark as Favorite</button>
           <button (click)="viewDetails(listing.id)"  class="viewDetail">View Details</button>
 
         </div>
+      </div> -->
+      <div class="listing-container">
+        <div *ngFor="let listing of paginatedListings" class="listing-item">
+          <div *ngIf="listing.isFavourite" class="favourate-icon">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+          <img [src]="listing.imageUrl" alt="Listing Image" class="carousel-image">
+          <h3>{{ listing.title }}</h3>
+          <p>{{ listing.description }}</p>
+          <button (click)="markAsFavorite(listing.id)" class="markAsFavourate">
+            {{ listing.isFavourite ? 'Remove Favorite' : 'Mark as Favorite' }}
+            </button>
+          <button (click)="viewDetails(listing.id)" class="viewDetail">View Details</button>
+        </div>
       </div>
+      
   
       <div class="pagination">
         <button

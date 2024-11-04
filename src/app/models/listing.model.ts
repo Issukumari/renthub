@@ -8,6 +8,7 @@
     description: string;
     photos?: string[];
     isHighlighted: boolean;
+    isFavourite: boolean;
   }
   
   export interface PaginatedResponse {
