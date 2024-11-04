@@ -24,8 +24,7 @@ describe('LoginComponent', () => {
     mockRouter = new MockRouter();
 
     await TestBed.configureTestingModule({
-      declarations: [LoginComponent],
-      imports: [ReactiveFormsModule],
+      imports: [LoginComponent,ReactiveFormsModule],
       providers: [
         { provide: AuthService, useValue: mockAuthService },
         { provide: Router, useValue: mockRouter },
@@ -57,7 +56,7 @@ describe('LoginComponent', () => {
   });
 
   it('should navigate to home on successful login', () => {
-    mockAuthService.login.and.returnValue(of({})); // Mock successful login response
+    mockAuthService.login.and.returnValue(of({})); 
     component.loginForm.controls['email'].setValue('test@example.com');
     component.loginForm.controls['password'].setValue('password123');
 
@@ -65,8 +64,6 @@ describe('LoginComponent', () => {
 
     expect(mockAuthService.login).toHaveBeenCalledWith('test@example.com', 'password123');
     expect(component.successMessage).toBe('User logged in successfully!');
-
-    // Simulate the navigation delay
     setTimeout(() => {
       expect(mockRouter.navigate).toHaveBeenCalledWith(['/home']);
     }, 1000);

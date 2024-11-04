@@ -6,6 +6,5 @@
     "types": ["jasmine", "node"], // Change from "jest" to "jasmine"
     "target": "es6"
   },
-  "files": ["src/test-setup.ts"],
-  "include": ["**/*.spec.ts", "**/*.d.ts"]
+"include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }

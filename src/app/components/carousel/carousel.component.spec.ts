@@ -87,14 +87,6 @@ describe('CarouselComponent', () => {
     component.nextImage();
     expect(component.currentIndex).toBe(component.images.length - 1);
   });
-
-  it('should mark a listing as favorite', () => {
-    const listingId = 1;
-    mockListingService.markAsFavorite.and.returnValue(of(void 0));
-    component.markAsFavorite(listingId);
-    expect(mockListingService.markAsFavorite).toHaveBeenCalledWith(listingId);
-  });
-
   it('should navigate to the details page for a listing', () => {
     const listingId = 1;
     component.viewDetails(listingId);

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ListingService } from '../../services/listing.service';
 import { NgFor } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommentService } from '../../services/comment.service';
 
 @Component({
   selector: 'app-preview-screen',
@@ -15,21 +14,13 @@ import { CommentService } from '../../services/comment.service';
 })
 export class PreviewScreenComponent {
   propertyPreviewData: any= [];
-  // posts: any = [];
-  constructor(private readonly listService: ListingService,private readonly commentService:CommentService) { }
+  constructor(private readonly listService: ListingService) { }
 
   ngOnInit(): void {
     this.listService.getPrviewData().subscribe(previewData=>{
       this.propertyPreviewData=previewData[0]
-      console.log(this.propertyPreviewData.imageUrl)
 
     })
-    // this.commentService.getPosts().subscribe({
-    //   next: (data) => {
-    //     this.propertyPreviewData = data;
-    //     console.log('Fetched posts:', data);
-    //   },
-    //   error: (error) => console.error('Error fetching posts:', error),
-    // });
+
   }
 }
