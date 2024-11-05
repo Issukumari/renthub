@@ -28,6 +28,9 @@ export class HeaderComponent {
   openRegister() {
     this.router.navigate(['/register']);
   }
+  createPost() {
+    this.router.navigate(['/createpost']);
+  }
 
   logout() {
     this.authService.logout().subscribe(() => {
