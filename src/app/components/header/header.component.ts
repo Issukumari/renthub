@@ -29,7 +29,12 @@ export class HeaderComponent {
     this.router.navigate(['/register']);
   }
   createPost() {
-    this.router.navigate(['/createpost']);
+    const isAuthenticated = this.authService.isAuthenticated(); 
+    if (isAuthenticated) {
+      this.router.navigate(['/createpost']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   logout() {
