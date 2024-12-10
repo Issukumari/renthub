@@ -49,64 +49,59 @@ export class HomeComponent {
     });
   }
 
+
   loadPaginatedListings(page: number) {
     this.listingService.getPaginatedListings(page).subscribe(response => {
-      this.paginatedListings = response.listings;
-      this.originalListings = [...this.paginatedListings];
-      this.totalPages = response.totalPages;
+        this.paginatedListings = response.listings;
+        this.originalListings = [...this.paginatedListings];
+        this.totalPages = response.totalPages;
+        this.filterListings();
     });
-  }
+}
+
 
   filterListings() {
     let filteredListings = [...this.originalListings];
-      if (this.searchQuery) {
-      filteredListings = filteredListings.filter(listing => 
-        listing.location.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
+
+    if (this.searchQuery) {
+        filteredListings = filteredListings.filter(listing => 
+            listing.location.toLowerCase().includes(this.searchQuery.toLowerCase())
+        );
     }
-  
+
     if (this.priceRange[0] !== null && this.priceRange[1] !== null &&
         this.priceRange[0] !== undefined && this.priceRange[1] !== undefined) {
-  
-      filteredListings = filteredListings.filter(listing => 
-        listing.price >= this.priceRange[0] && listing.price <= this.priceRange[1]
-      );
-  
-      if (filteredListings.length === 0) {
-        this.paginatedListings = []; 
-        return; 
-      }
+
+        filteredListings = filteredListings.filter(listing => 
+            listing.price >= this.priceRange[0] && listing.price <= this.priceRange[1]
+        );
     }
-  
+
     if (this.selectedAmenities.length > 0) {
-      filteredListings = filteredListings.filter(listing =>
-        this.selectedAmenities.every(amenity => listing.amenities.includes(amenity))
-      );
+        filteredListings = filteredListings.filter(listing =>
+            this.selectedAmenities.every(amenity => listing.amenities.includes(amenity))
+        );
     }
-  
     this.paginatedListings = filteredListings;
-  }
-    toggleAmenity(amenity: string): void {
+}
+
+  toggleAmenity(amenity: string): void {
     const index = this.selectedAmenities.indexOf(amenity);
     if (index === -1) {
-      this.selectedAmenities.push(amenity);
+        this.selectedAmenities.push(amenity);
     } else {
-      this.selectedAmenities.splice(index, 1);
+        this.selectedAmenities.splice(index, 1);
     }
-    this.filterListings();
-  }
-
+    this.filterListings(); 
+}
   changePage(page: number) {
     this.currentPage = page;
   
-    this.searchQuery = ''; 
-    this.priceRange = [0, 0];
-    this.selectedAmenities = []; 
-      this.loadPaginatedListings(page);
-  }
+    this.loadPaginatedListings(page);
+    this.filterListings(); 
+}
 
   markAsFavorite(listingId: number) {
-    console.log('markAsFavorite')
     this.listingService.markAsFavorite(listingId).subscribe(() => {
         const listing = this.highlightedListings.find(l => l.id === listingId);
       if (listing) {
