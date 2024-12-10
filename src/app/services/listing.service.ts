@@ -11,18 +11,18 @@ export class ListingService {
     {
       id: 1,
       title: 'Cozy Apartment in City Center',
-      location: 'Downtown, City A',
+      location: 'mumbai',
       price: 1500,
       amenities: ['Wi-Fi', 'Air Conditioning', 'Parking'],
       imageUrl: 'assets/cozy-apartment.png',
-      description: 'A cozy 2-bedroom apartment located in the heart of the city with easy access to public transport.',
+      description: 'A cozy 2-bedroom apartment is located in mumbai. it is also called as the heart of the city with easy access to public transport.',
       isHighlighted: false,
       isFavourite: false
     },
     {
       id: 2,
       title: 'Spacious Apartment Near Park',
-      location: 'Suburb, City B',
+      location: 'hyderabad',
       price: 1200,
       amenities: ['Wi-Fi', 'Gym Access', 'Pet Friendly'],
       imageUrl: 'assets/spacious.jpg',
@@ -33,7 +33,7 @@ export class ListingService {
     {
       id: 3,
       title: 'Modern Studio Apartment Center',
-      location: 'Midtown, City A',
+      location: 'chennai',
       price: 1000,
       amenities: ['Wi-Fi', 'Gym Access', 'Swimming Pool'],
       imageUrl: 'assets/modern-studio.jpg',
@@ -44,7 +44,7 @@ export class ListingService {
     {
       id: 4,
       title: 'Luxury Penthouse',
-      location: 'Uptown, City C',
+      location: 'bangalore',
       price: 3000,
       amenities: ['Wi-Fi', 'Private Pool', 'Concierge'],
       imageUrl: 'assets/spacious.jpg',
